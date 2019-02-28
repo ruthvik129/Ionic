@@ -1,0 +1,20 @@
+/* Empty. Add your own CSS if you like */
+  #my{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 100;
+  }
+
+  .center{
+    margin: 0 auto;
+    padding:5em 0 5em 0;
+  }
+
+.background{
+  /* background-image: url("images/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; */
+  background-color:red;
+}

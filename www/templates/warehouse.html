@@ -1,0 +1,72 @@
+<ion-view view-title="Warehouse">
+  <ion-content>
+
+
+      <div class="item item-avatar">
+        <img src="images/logo.png">
+        <h2>User Name</h2>
+        <p>Current Stock:{{selected.stock}}</p>
+      </div>
+      <ion-list>
+    <input type="text" align="middle" placeholder="Enter Location"  ng-model="selected" typeahead-min-length="0" typeahead-editable="false"   typeahead-show-hint="true" typeahead-select-on-blur="true" uib-typeahead="language as language.name  for language in languages | filter:$viewValue | limitTo:20"/>
+</ion-list>
+      <div class="card">
+    <ion-toggle ng-model="myadd">Update Stock</ion-toggle>
+    <div ng-hide="myadd">
+
+    <ion-list>
+
+  <ion-checkbox ng-model="check" ng-true-value="1"/>Reason 1</ion-checkbox>
+  <ion-checkbox ng-model="checka" ng-true-value="2">Reason 2</ion-checkbox>
+  <ion-checkbox ng-model="checkab" ng-true-value="3">Reason 3</ion-checkbox>
+  <ion-checkbox ng-model="checkac" ng-true-value="4">Reason 4</ion-checkbox>
+  <div ng-show="check == '1' || checka == '2' || checkab == '3' || checkac == '4'">
+  <ion-toggle ng-model="myr">Report Usage</ion-toggle>
+  <div ng-show="myr">
+  <ion-item ng-repeat="choice in choices">
+    <div class="list">
+          <label class="item item-input">
+            <textarea placeholder="Usage"></textarea>
+          </label>
+        </div>
+        <button class="button button-small button-assertive" ng-if="choices.length>1" ng-click="removeChoice($index)">-</button>
+      </ion-item><br>
+    <button class="button button-small button-dark" ng-click="addNewChoice()">
+     Add Fields
+  </button>
+  </div>
+  </div>
+
+
+
+
+</ion-list>
+
+
+</div>
+
+    <div ng-show="myadd">
+<ion-item ng-repeat="choice in choices">
+      <div class="list">
+
+        <div class="item item-input-inset">
+          <label class="item-input-wrapper">
+           <input type="number" ng-model="choice.number" placeholder="Enter Stock">
+          </label>
+          <button class="button button-small button-assertive" ng-if="choices.length>1" ng-click="removeChoice($index)">-</button>
+        </div>
+          </div>
+        </ion-item><br>
+   <button class="button button-small button-dark" ng-click="addNewChoice()">
+       Add Fields
+</button>
+</div>
+</div>
+
+
+<!-- Report Usage Card -->
+<div id="my"><button class="button button-balanced" ng-click="Submit()">
+  Submit</button></div>
+  <h3>{{myTxt}}</h3>
+  </ion-content>
+</ion-view>
